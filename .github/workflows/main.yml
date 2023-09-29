@@ -26,4 +26,4 @@ jobs:
           context: .
           file: Dockerfile
           push: true
-          tags: itssomething/remi-project-2:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/remi-project-2:latest
