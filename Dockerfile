@@ -2,7 +2,7 @@ FROM ruby:2.7.4-slim-buster
 
 RUN apt-get update -y && apt-get -y install curl postgresql-client build-essential libpq-dev wget
 
-RUN curl -sL https://deb.nodesource.com/setup_14.x | bash - && apt-get install -y nodejs
+RUN curl -sL https://deb.nodesource.com/setup_18.x | bash - && apt-get install -y nodejs
 RUN npm install -g yarn
 WORKDIR /myapp
 COPY Gemfile /myapp/Gemfile
