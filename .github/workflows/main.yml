@@ -49,8 +49,8 @@ jobs:
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          application_name: remi-project-2-2
-          environment_name: Remi-project-2-2-env
+          application_name: rails-docker
+          environment_name: Rails-docker-env
           version_label: "docker-app-${{ steps.format-time.outputs.replaced }}"
           region: us-east-1
           deployment_package: deploy.zip
