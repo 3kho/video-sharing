@@ -24,12 +24,14 @@ jobs:
           yarn install
       - name: Build and run test
         env:
-          DATABASE_URL: ${{ secrets.POSTGRES_HOST }}
+          POSTGRES_HOST: ${{ secrets.POSTGRES_HOST }}
           RAILS_ENV: test
-          POSTGRES_USER: ${{ secrets.POSTGRES_USERNAME }}
+          POSTGRES_USERNAME: ${{ secrets.POSTGRES_USERNAME }}
           POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
         run: |
-          cat .env
+          echo $POSTGRES_HOST
+          echo $POSTGRES_USERNAME
+          echo $POSTGRES_PASSWORD
           sudo apt-get -yqq install libpq-dev
           gem install bundler
           bundle install --jobs 4 --retry 3
