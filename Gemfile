@@ -28,14 +28,14 @@ group :development do
   gem 'bullet'
 end
 
-# group :test, :ci do
-gem 'rspec'
-gem 'rspec-rails'
-gem 'selenium-webdriver'
-gem 'webdrivers'
-gem 'factory_bot'
-gem 'capybara'
-gem 'database_cleaner'
-# end
+group :test do
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'selenium-webdriver'
+  gem 'webdrivers'
+  gem 'factory_bot'
+  gem 'capybara'
+  gem 'database_cleaner'
+end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
