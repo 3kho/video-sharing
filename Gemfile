@@ -19,7 +19,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
   gem 'factory_girl_rails'
-  gem 'capybara'
+  # gem 'capybara'
   gem 'database_cleaner'
 end
 
@@ -33,8 +33,8 @@ group :development do
 end
 
 group :test do
-  gem 'selenium-webdriver'
-  gem 'webdrivers'
+  # gem 'selenium-webdriver'
+  # gem 'webdrivers'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
