@@ -15,27 +15,27 @@ gem 'devise'
 
 gem 'bootsnap', '>= 1.4.2', require: false
 
-group :development, :test do
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-end
+# group :development, :test do
+gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+# end
 
-group :development do
-  gem 'web-console', '>= 3.3.0'
-  gem 'listen', '~> 3.2'
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'annotate'
-  gem 'bullet'
-end
+# group :development do
+gem 'web-console', '>= 3.3.0'
+gem 'listen', '~> 3.2'
+gem 'spring'
+gem 'spring-watcher-listen', '~> 2.0.0'
+gem 'annotate'
+gem 'bullet'
+# end
 
-group :test, :ci do
-  gem 'rspec'
-  gem 'rspec-rails'
-  gem 'selenium-webdriver'
-  gem 'webdrivers'
-  gem 'factory_bot'
-  gem 'capybara'
-  gem 'database_cleaner'
-end
+# group :test, :ci do
+gem 'rspec'
+gem 'rspec-rails'
+gem 'selenium-webdriver'
+gem 'webdrivers'
+gem 'factory_bot'
+gem 'capybara'
+gem 'database_cleaner'
+# end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
