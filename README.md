@@ -1,11 +1,15 @@
-`touch tool-versions` and add correct ruby version
-copy .env.example to .env and paste correct value
+# Ruby Video Share
 
-edit `BOOTSTRAP=true` for first time setup
-edit value in `database.yml` if needed
+`touch tool-versions` and add the correct ruby version
+copy .env.example to .env and paste the valid value
+
+Edit `BOOTSTRAP=true` for first-time setup
+
+Edit value in `database.yml` if needed
 
 and then
 
-`docker compose build`
-
-`docker compose up`
+```bash
+docker compose build
+docker compose up
+```
