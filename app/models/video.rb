@@ -6,12 +6,14 @@ end
 #
 # Table name: videos
 #
-#  id         :bigint           not null, primary key
-#  title      :string
-#  url        :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  user_id    :bigint           not null
+#  id            :bigint           not null, primary key
+#  dislike_count :integer          default(0)
+#  like_count    :integer          default(0)
+#  title         :string
+#  url           :string
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  user_id       :bigint           not null
 #
 # Indexes
 #
