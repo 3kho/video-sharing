@@ -9,7 +9,38 @@ end
 # == Route Map
 #
 #                                Prefix Verb   URI Pattern                                                                              Controller#Action
+#                      new_user_session GET    /users/sign_in(.:format)                                                                 devise/sessions#new
+#                          user_session POST   /users/sign_in(.:format)                                                                 devise/sessions#create
+#                  destroy_user_session DELETE /users/sign_out(.:format)                                                                devise/sessions#destroy
+#                     new_user_password GET    /users/password/new(.:format)                                                            devise/passwords#new
+#                    edit_user_password GET    /users/password/edit(.:format)                                                           devise/passwords#edit
+#                         user_password PATCH  /users/password(.:format)                                                                devise/passwords#update
+#                                       PUT    /users/password(.:format)                                                                devise/passwords#update
+#                                       POST   /users/password(.:format)                                                                devise/passwords#create
+#              cancel_user_registration GET    /users/cancel(.:format)                                                                  devise/registrations#cancel
+#                 new_user_registration GET    /users/sign_up(.:format)                                                                 devise/registrations#new
+#                edit_user_registration GET    /users/edit(.:format)                                                                    devise/registrations#edit
+#                     user_registration PATCH  /users(.:format)                                                                         devise/registrations#update
+#                                       PUT    /users(.:format)                                                                         devise/registrations#update
+#                                       DELETE /users(.:format)                                                                         devise/registrations#destroy
+#                                       POST   /users(.:format)                                                                         devise/registrations#create
 #                                  root GET    /                                                                                        videos#index
+#                                 users GET    /users(.:format)                                                                         users#index
+#                                       POST   /users(.:format)                                                                         users#create
+#                              new_user GET    /users/new(.:format)                                                                     users#new
+#                             edit_user GET    /users/:id/edit(.:format)                                                                users#edit
+#                                  user GET    /users/:id(.:format)                                                                     users#show
+#                                       PATCH  /users/:id(.:format)                                                                     users#update
+#                                       PUT    /users/:id(.:format)                                                                     users#update
+#                                       DELETE /users/:id(.:format)                                                                     users#destroy
+#                                videos GET    /videos(.:format)                                                                        videos#index
+#                                       POST   /videos(.:format)                                                                        videos#create
+#                             new_video GET    /videos/new(.:format)                                                                    videos#new
+#                            edit_video GET    /videos/:id/edit(.:format)                                                               videos#edit
+#                                 video GET    /videos/:id(.:format)                                                                    videos#show
+#                                       PATCH  /videos/:id(.:format)                                                                    videos#update
+#                                       PUT    /videos/:id(.:format)                                                                    videos#update
+#                                       DELETE /videos/:id(.:format)                                                                    videos#destroy
 #         rails_postmark_inbound_emails POST   /rails/action_mailbox/postmark/inbound_emails(.:format)                                  action_mailbox/ingresses/postmark/inbound_emails#create
 #            rails_relay_inbound_emails POST   /rails/action_mailbox/relay/inbound_emails(.:format)                                     action_mailbox/ingresses/relay/inbound_emails#create
 #         rails_sendgrid_inbound_emails POST   /rails/action_mailbox/sendgrid/inbound_emails(.:format)                                  action_mailbox/ingresses/sendgrid/inbound_emails#create
