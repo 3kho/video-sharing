@@ -6,7 +6,7 @@ ruby '3.0.6'
 gem 'dotenv-rails', require: 'dotenv/rails-now'
 gem 'rails', '~> 6.0.4', '>= 6.0.4.7'
 gem 'pg'
-gem 'puma', '~> 4.1'
+gem 'puma', '6.3.1'
 gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 4.0'
 gem 'turbolinks', '~> 5'
@@ -21,7 +21,6 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'annotate'
   gem 'bullet'
-  gem 'annotate'
 end
 
 group :test, :development do
