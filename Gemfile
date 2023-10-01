@@ -12,7 +12,7 @@ gem 'webpacker', '~> 4.0'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 gem 'devise'
-
+gem 'psych', '< 4' # fix psych error in ruby 3.1
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development do
@@ -28,7 +28,6 @@ group :test, :development do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
   gem 'selenium-webdriver'
-  gem 'webdrivers'
   gem 'factory_bot'
   gem 'capybara'
   gem 'database_cleaner'
