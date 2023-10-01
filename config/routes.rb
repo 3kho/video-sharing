@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root to: 'videos#index'
   resources :users
   resources :videos
+  resource :authentication, only: %i(create destroy)
 end
 
 # == Route Map
@@ -41,6 +42,8 @@ end
 #                                       PATCH  /videos/:id(.:format)                                                                    videos#update
 #                                       PUT    /videos/:id(.:format)                                                                    videos#update
 #                                       DELETE /videos/:id(.:format)                                                                    videos#destroy
+#                        authentication DELETE /authentication(.:format)                                                                authentications#destroy
+#                                       POST   /authentication(.:format)                                                                authentications#create
 #         rails_postmark_inbound_emails POST   /rails/action_mailbox/postmark/inbound_emails(.:format)                                  action_mailbox/ingresses/postmark/inbound_emails#create
 #            rails_relay_inbound_emails POST   /rails/action_mailbox/relay/inbound_emails(.:format)                                     action_mailbox/ingresses/relay/inbound_emails#create
 #         rails_sendgrid_inbound_emails POST   /rails/action_mailbox/sendgrid/inbound_emails(.:format)                                  action_mailbox/ingresses/sendgrid/inbound_emails#create
