@@ -1,4 +1,4 @@
-FROM ruby:2.7.4-slim-buster
+FROM ruby:2.7.8-slim-buster
 
 RUN apt-get update -y && apt-get -y install curl postgresql-client build-essential libpq-dev wget
 
