@@ -3,6 +3,14 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :rememberable, :validatable
   has_many :videos
+
+  before_save :assign_name
+
+  private
+
+  def assign_name
+    self.name = self.email.split('@')[0]
+  end
 end
 
 # == Schema Information

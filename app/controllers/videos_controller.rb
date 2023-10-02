@@ -3,7 +3,7 @@ class VideosController < ApplicationController
 
   # GET /videos
   def index
-    @videos = Video.all
+    @videos = Video.all.order(created_at: :desc)
   end
 
   def new
@@ -19,6 +19,7 @@ class VideosController < ApplicationController
     @video = Video.new(user: current_user, url: create_params[:url])
 
     if @video.save
+      ActionCable.server.broadcast("new_video_channel", @video.as_json(include: :user))
       flash[:success] = "Movie shared"
       redirect_to new_video_path
     else

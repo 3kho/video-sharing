@@ -6,11 +6,21 @@ class Video < ApplicationRecord
   validates :url, presence: true, format: { with: YOUTUBE_REGEX }
 
   before_save :assign_youtube_video_id
+  before_save :fetch_title
 
   private
 
   def assign_youtube_video_id
     self.youtube_video_id = self.url.match(YOUTUBE_REGEX)[7]
+  end
+
+  def fetch_title
+    response = Faraday.get("https://www.googleapis.com/youtube/v3/videos?part=snippet&id=#{self.youtube_video_id}&key=#{ENV['YOUTUBE_API_KEY']}")
+
+    if response.status == 200
+      self.title = JSON.parse(response.body)["items"][0]["snippet"]["title"]
+      self.description = JSON.parse(response.body)["items"][0]["snippet"]["description"]
+    end
   end
 end
 
