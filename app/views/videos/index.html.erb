@@ -1,0 +1,27 @@
+<% @videos.each do |video| %>
+  <div class="row mb-5">
+    <div class="col-5">
+      <iframe class="youtube-iframe" src="https://www.youtube.com/embed/<%= video.youtube_video_id %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="col-7">
+      <h4><%= video.title %></h4>
+      <div>
+        Shared by: <%= video.user.email %>
+      </div>
+      <div>
+        <span>
+          <%= video.like_count %> <i class="far fa-thumbs-up"></i>
+        </span>
+        <span class="">
+          <%= video.dislike_count %> <i class="far fa-thumbs-down"></i>
+        </span>
+      </div>
+      <div>
+        Description:
+      </div>
+      <div>
+        <%= video.description || "This video does not have any description" %>
+      </div>
+    </div>
+  </div>
+<% end %>

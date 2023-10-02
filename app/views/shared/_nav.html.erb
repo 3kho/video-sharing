@@ -1,0 +1,37 @@
+<header class="mb-3 header">
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container">
+      <span class="">
+        <i class="text-light fab fa-youtube"></i>
+      </span>
+      <a class="navbar-brand ms-3" href="<%= root_path %>">Funny videos</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+          </li>
+        </ul>
+        <% if !current_user %>
+          <%= form_with url: authentication_path, method: :post, local: true, class: "d-flex" do |f| %>
+            <%= f.text_field :email, class: "form-control me-2", placeholder: "Email" %>
+            <%= f.password_field  :password, class: "form-control me-2", placeholder: "Password" %>
+            <%= f.submit "Login/Sign up", class: "btn btn-outline-success" %>
+          <% end %>
+        <% else %>
+          <div class="d-flex justify-content-center align-items-center">
+            <p class="text-light me-3 align-items-center">
+              Welcome <%= current_user.email %>
+            </p>
+            <%= link_to "Share a video", new_video_path, class: "btn btn-primary me-3" %>
+
+            <%= form_with url: authentication_path, method: :delete, local: true do |f| %>
+              <%= f.submit "Sign out", class: "btn btn-danger" %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </nav>
+</header>
