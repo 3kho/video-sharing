@@ -1,5 +1,5 @@
-<div class="">
-  <div class="">Share a youtube video</div>
+<fieldset class="">
+  <legend class="">Share a youtube video</legend>
 
   <%= form_with model: @video, url: videos_path, method: :post, local: true do |f| %>
     <div class="form-group row mb-3">
@@ -15,4 +15,4 @@
       </div>
     </div>
   <% end %>
-</div>
+</fieldset>

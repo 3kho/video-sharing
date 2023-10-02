@@ -1,5 +1,5 @@
 class VideosController < ApplicationController
-  before_action :authenticate_user!, except: %i(index)
+  before_action :authenticate_user!, except: %i(index new)
 
   # GET /videos
   def index
@@ -7,7 +7,12 @@ class VideosController < ApplicationController
   end
 
   def new
-    @video = Video.new
+    if !current_user
+      flash[:danger] = "Please sign in to share a movie"
+      redirect_to videos_path
+    else
+      @video = Video.new
+    end
   end
 
   def create
