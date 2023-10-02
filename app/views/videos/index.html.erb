@@ -20,7 +20,11 @@
         Description:
       </div>
       <div>
-        <%= video.description || "This video does not have any description" %>
+        <% if video.description %>
+          <%= video.description[0..300] %>...
+        <% else %>
+          This video does not have any description
+        <% end %>
       </div>
     </div>
   </div>
