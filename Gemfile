@@ -29,9 +29,10 @@ group :test, :development do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
   gem 'selenium-webdriver'
-  gem 'factory_bot'
+  gem 'factory_bot_rails'
   gem 'capybara'
   gem 'database_cleaner'
+  gem "webmock"
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

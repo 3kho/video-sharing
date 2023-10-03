@@ -1,4 +1,6 @@
 class Video < ApplicationRecord
+  attr_accessor :skip_callbacks
+
   belongs_to :user
 
   YOUTUBE_REGEX = /\A.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/
@@ -6,7 +8,7 @@ class Video < ApplicationRecord
   validates :url, presence: true, format: { with: YOUTUBE_REGEX }
 
   before_save :assign_youtube_video_id
-  before_save :fetch_title
+  before_save :fetch_title_and_description
 
   private
 
@@ -14,7 +16,9 @@ class Video < ApplicationRecord
     self.youtube_video_id = self.url.match(YOUTUBE_REGEX)[7]
   end
 
-  def fetch_title
+  def fetch_title_and_description
+    return if skip_callbacks
+
     response = Faraday.get("https://www.googleapis.com/youtube/v3/videos?part=snippet&id=#{self.youtube_video_id}&key=#{ENV['YOUTUBE_API_KEY']}")
 
     if response.status == 200
