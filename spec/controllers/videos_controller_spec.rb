@@ -38,13 +38,13 @@ RSpec.describe VideosController, type: :controller do
       it "create video" do
         post :create, params: { video: { url: url } }
 
-        expect(flash[:success]).to eq("Movie shared")
+        expect(flash[:success]).to eq("Video shared")
         expect(user.videos.last.url).to eq(url)
       end
 
       it "does not create video when error" do
         post :create, params: { video: { url: "123" } }
-        expect(flash[:danger]).to eq("Movie failed to share, please try again")
+        expect(flash[:danger]).to eq("Video failed to share, please try again")
         expect(user.videos.count).to eq(0)
       end
     end
