@@ -34,27 +34,27 @@ jobs:
           bundle exec rake db:create
           bundle exec rake db:migrate
           bundle exec rspec .
-  deploy-to-env-1:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout source code
-        uses: actions/checkout@v4
+  # deploy-to-env-1:
+  #   needs: build
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout source code
+  #       uses: actions/checkout@v4
 
-      - name: Generate deployment package
-        run: zip -r deploy.zip . -x '*.git*'
+  #     - name: Generate deployment package
+  #       run: zip -r deploy.zip . -x '*.git*'
 
-      - name: Deploy to EB
-        uses: einaregilsson/beanstalk-deploy@v21
-        with:
-          aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          application_name: video-sharing-3.0
-          environment_name: video-sharing-3-1-env
-          version_label: ${{ github.sha }}
-          region: us-east-1
-          deployment_package: deploy.zip
-          wait_for_deployment: false
+  #     - name: Deploy to EB
+  #       uses: einaregilsson/beanstalk-deploy@v21
+  #       with:
+  #         aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  #         aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  #         application_name: video-sharing-3.0
+  #         environment_name: video-sharing-3-1-env
+  #         version_label: ${{ github.sha }}
+  #         region: us-east-1
+  #         deployment_package: deploy.zip
+  #         wait_for_deployment: false
   deploy-to-env-2:
     needs: build
     runs-on: ubuntu-latest
