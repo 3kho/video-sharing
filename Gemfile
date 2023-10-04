@@ -15,6 +15,7 @@ gem 'devise'
 gem 'bootstrap'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'faraday'
+gem 'redis'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
